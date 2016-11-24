@@ -10,7 +10,7 @@ class StatusScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<StatusIndicator />
+				<StatusIndicator isUp={true}/>
 				<Text style={styles.statusText}>Service Up</Text>
 			</View>
 		)

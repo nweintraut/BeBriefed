@@ -1,19 +1,25 @@
-import React from 'react'
+import React, {PropTypes } from 'react'
 import {
 	View,
 	Text,
 	StyleSheet
 } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 /* Stateless Component */
 /* No Lifecycle Menthods such as ComponentDidMount or componentDidUpdate */
 /* Does not hold internal state */
 const StatusIndicator = (props) => (
-	<View style={styles.border}>
-		<Text style={styles.character}>X</Text>
+	<View style={[styles.border, props.isUp && styles.isUpBorderColor]}>
+		<Text style={[styles.character, props.isUp && styles.isUpCharacterColor]}>
+			<Icon name={props.isUp ? 'check' :'times'} size={180} />
+		</Text>
 	</View>
 )
 
+StatusIndicator.propTypes = {
+	isUp: PropTypes.bool.isRequired
+}
 const styles = StyleSheet.create({
 	border: {
 		borderWidth: 20,
@@ -28,6 +34,12 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		backgroundColor: 'rgba(0,0,0,0)',
 		color: '#BF1534',
+	},
+	isUpBorderColor: {
+		borderColor: '#00FF70'
+	},
+	isUpCharacterColor: {
+		color: '#00FF22'
 	}
 })
 export default StatusIndicator
