@@ -11,7 +11,7 @@ class StatusScreen extends Component {
 	render() {
 		let lastUpComponent 
 		if (!this.props.isUp) {
-			const relativeTime = moment().from(this.props.lastUpTime)
+			const relativeTime = moment().to(this.props.lastUpTime)
 			lastUpComponent = <Text style={styles.lastUpText}>Last up: {relativeTime}</Text>
 		} 
 		return (
