@@ -6,6 +6,8 @@ import {
 } from 'react-native'
 
 /* Stateless Component */
+/* No Lifecycle Menthods such as ComponentDidMount or componentDidUpdate */
+/* Does not hold internal state */
 const StatusIndicator = (props) => (
 	<View style={styles.border}>
 		<Text style={styles.character}>X</Text>

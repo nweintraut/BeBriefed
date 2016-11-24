@@ -4,11 +4,13 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native'
+import StatusIndicator from './StatusIndicator'
 
 class StatusScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<StatusIndicator />
 				<Text style={styles.statusText}>Service Up</Text>
 			</View>
 		)
