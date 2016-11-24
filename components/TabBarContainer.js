@@ -13,6 +13,7 @@ const TabBarContainer = (props) => (
 		onSelect={comp => {
 			props.onTabChange(comp.props.name)
 		}}
+		selected={props.selectedService}
 	>
 
 		<TabBarItem name="web" label="Web Server" icon="server" />
@@ -23,6 +24,7 @@ const TabBarContainer = (props) => (
 )
 TabBarContainer.propTypes = {
 	onTabChange: PropTypes.func.isRequired,
+	selectedService: PropTypes.string.isRequired,
 }
 const styles = StyleSheet.create({
 	tabContainer: {
