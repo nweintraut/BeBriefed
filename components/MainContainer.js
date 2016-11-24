@@ -7,18 +7,27 @@ import StatusScreen from './StatusScreen'
 import TabBarContainer from './TabBarContainer'
 
 class MainContainer extends Component {
+	_renderTab(selected, services) {
+		const thisService = services.find(s => s.key === selected)
+		return (
+			<StatusScreen
+				isUp={thisService.isUp}
+				lastUpTime={thisService.lastUpTime}
+			/>
+		)
+	}
 	render() {
 		return (
 			<View style={styles.container}>
-				<StatusScreen isUp={this.props.isUp} lastUpTime={this.props.lastUpTime}/>
+				{this._renderTab(this.props.selectedService, this.props.services)}
 				<TabBarContainer />
 			</View>
 		)
 	}
 }
 MainContainer.propTypes = {
-	isUp: PropTypes.bool.isRequired,
-	lastUpTime: PropTypes.instanceOf(Date),
+	selectedService: PropTypes.string.isRequired,
+	services: PropTypes.array.isRequired,
 }
 const styles = StyleSheet.create({
 	container: {

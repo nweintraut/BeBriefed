@@ -14,13 +14,20 @@ class BeBriefed extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			isUp: false,
-			lastUpTime: new Date((new Date()).getTime() - 5 * 60 * 1000)
+			selectedService: 'mail',
+			services: [
+				{ key: 'web',  isUp: true,  lastUpTime: null },
+				{ key: 'db',   isUp: false, lastUpTime: (new Date((new Date()).getTime() - 5 * 60 * 1000))},
+				{ key: 'mail', isUp: true,  lastUpTime: null },
+			],
 		}
 	}
   render() {
     return (
-      <MainContainer isUp={this.state.isUp} lastUpTime={this.state.lastUpTime}/>
+      <MainContainer 
+      	selectedService={this.state.selectedService}
+      	services={this.state.services}
+      />
     );
   }
 }
