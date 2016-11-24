@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
 	View,
 	StyleSheet
@@ -9,10 +9,13 @@ class MainContainer extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<StatusScreen />
+				<StatusScreen isUp={this.props.isUp} />
 			</View>
 		)
 	}
+}
+MainContainer.propTypes = {
+	isUp: PropTypes.bool.isRequired
 }
 const styles = StyleSheet.create({
 	container: {

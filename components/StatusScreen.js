@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
 	View,
 	Text,
@@ -11,10 +11,13 @@ class StatusScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<StatusIndicator isUp={true}/>
-				<Text style={styles.statusText}>Service Up</Text>
+				<Text style={styles.statusText}>Service {this.props.isUp ? 'Up' : 'Down'}</Text>
 			</View>
 		)
 	}
+}
+StatusScreen.propTypes = {
+	isUp: PropTypes.bool.isRequired,
 }
 const styles = StyleSheet.create({
 	container: {

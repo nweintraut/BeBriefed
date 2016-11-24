@@ -10,10 +10,11 @@ import {
 } from 'react-native';
 import MainContainer from './components/MainContainer'
 
+const isUp = true
 export default class BeBriefed extends Component {
   render() {
     return (
-      <MainContainer />
+      <MainContainer isUp={isUp}/>
     );
   }
 }
